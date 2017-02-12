@@ -1,0 +1,42 @@
+<html>
+<head>
+    <script src="js/jquery-2.1.4.min.js"></script>
+</head>
+
+
+<body>
+
+<!--<div id="knop" style="border: 1px black solid; height: 50px; width: 100px;" onclick="klik()">KLIK</div>-->
+
+<div id="tweets" style="border: 1px black solid; height: 300px; width: 750px; overflow: scroll;">...</div>
+
+</body>
+
+<script>
+    var index = '1'; //TODO because 0 is broken in java
+
+//    var klik = function () {
+//
+//        if (index > 20)
+//            return;
+//
+//        var url = "api/tweets?" + index++;
+//
+//        $.get(url, function (data) {
+//            $("#tweets").prepend('<div style="border: 1px grey dotted">' + data + '</div>');
+//        });
+//
+//    };
+
+    var source = new EventSource('api/tweets');
+
+    source.onmessage = function(e) {
+        console.log(e.data);
+        $("#tweets").prepend('<div style="border: 1px grey dotted">' + e.data + '</div>');
+    };
+
+
+</script>
+
+
+</html>

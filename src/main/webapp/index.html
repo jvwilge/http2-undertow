@@ -1,0 +1,35 @@
+<html>
+<head>
+    <script src="js/jquery-2.1.4.min.js"></script>
+</head>
+
+
+<body>
+
+<div id="hello-box" style="border: 1px gray solid; height: 100px; width: 400px">push the button!</div>
+<div id="again-box" style="border: 1px gray solid; height: 100px; width: 400px">...</div>
+<hr/>
+<input type="button" id="btn" onclick="loadHello()" value="push me"/>
+
+
+</body>
+
+<script>
+    var loadHello = function () {
+        $.get("api/hello", function (data) {
+            $("#hello-box").html(data);
+        });
+
+        setTimeout(loadAgain, 5000);
+    };
+
+    var loadAgain = function () {
+        $.get("api/again", function (data) {
+            $("#again-box").html(data);
+        });
+    }
+
+</script>
+
+
+</html>
