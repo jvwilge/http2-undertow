@@ -6,6 +6,6 @@ https://vanwilgenburg.wordpress.com/2015/12/28/http2-server-push-with-jboss-unde
 
 # run
 
-run with `mvn exec:exec`
+run with `mvn clean package exec:exec`
 
 Go to https://localhost:8443/hello-world/index.html

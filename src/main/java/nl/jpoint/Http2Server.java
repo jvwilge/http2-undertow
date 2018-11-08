@@ -69,6 +69,9 @@ public class Http2Server {
 	private static void assertJavaVersion8() {
 		String version = System.getProperty("java.version");
 		System.out.println("Java version " + version);
+		if (version.startsWith("10") || version.startsWith("11")) {
+			return;
+		}
 		if (version.charAt(0) == '1' && Integer.parseInt(version.charAt(2) + "") < 8) {
 			System.out.println("This example requires Java 1.8 or later");
 			System.out.println("The HTTP2 spec requires certain cyphers that are not present in older JVM's");
